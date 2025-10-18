@@ -1,0 +1,126 @@
+{
+
+	"__this is the path which is prepended to 'include-from-file' paths, if they are relative paths": "",
+	"_include-file-base-path": "",
+
+	"__user defined crops section to be used via references": "",
+	"crops": {
+		"CGL": {
+			"is-winter-crop": false,
+			"cropParams": {
+				"species": [ "include-from-file", "crops/clover-grass-ley.json" ],
+				"cultivar": [ "include-from-file", "crops/clover-grass-ley/.json" ]
+			},
+			"residueParams": [ "include-from-file", "crop-residues/clover-grass-ley.json" ]
+		},
+		"WR": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": [ "include-from-file", "crops/rye_IM.json" ],
+				"cultivar": [ "include-from-file", "crops/rye/winter-rye_IM.json" ]
+			},
+			"residueParams": [ "include-from-file", "crop-residues/rye.json" ]
+		},
+		"SM": {
+			"is-winter-crop": false,
+			"cropParams": {
+				"species": [ "include-from-file", "crops/maize.json" ],
+				"cultivar": [ "include-from-file", "crops/maize/silage-maize.json" ]
+			},
+			"residueParams": [ "include-from-file", "crop-residues/maize.json" ]
+		},
+		"MEP": {
+			"is-winter-crop": false,
+			"cropParams": {
+				"species": [ "include-from-file", "crops/potato.json" ],
+				"cultivar": [ "include-from-file", "crops/potato/moderately-early-potato.json" ]
+			},
+			"residueParams": [ "include-from-file", "crop-residues/potato.json" ]
+		},
+		"WW": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": [ "include-from-file", "crops/wheat.json" ],
+				"cultivar": [ "include-from-file", "crops/wheat/winter-wheat.json" ]
+			},
+			"residueParams": [ "include-from-file", "crop-residues/wheat.json" ]
+		},
+		"WG": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": [ "include-from-file", "crops/barley.json" ],
+				"cultivar": [ "include-from-file", "crops/barley/winter-barley.json" ]
+			},
+			"residueParams": [ "include-from-file", "crop-residues/barley.json" ]
+		},
+		"SG": {
+			"is-winter-crop": false,
+			"cropParams": {
+				"species": [ "include-from-file", "crops/barley.json" ],
+				"cultivar": [ "include-from-file", "crops/barley/spring-barley.json" ]
+			},
+			"residueParams": [ "include-from-file", "crop-residues/barley.json" ]
+		},
+		"SC": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": [ "include-from-file", "crops/rape.json" ],
+				"cultivar": [ "include-from-file", "crops/rape/winter-rape.json" ]
+			},
+			"residueParams": [ "include-from-file", "crop-residues/rape.json" ]
+		},
+
+
+		"WTI": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": [ "include-from-file", "crops/triticale.json" ],
+				"cultivar": [ "include-from-file", "crops/triticale/winter-triticale.json" ]
+			},
+			"residueParams": [ "include-from-file", "crop-residues/triticale.json" ]
+		}
+
+	},
+
+
+	"__user defined fertilizer parameteres section to be used via references": "",
+	"fert-params": {
+		"AN": [ "include-from-file", "mineral-fertilisers/AN.json" ],
+		"CADLM": [ "include-from-file", "organic-fertilisers/CADLM.json" ]
+	},
+
+	"__CROPS": "",
+	"cropRotation": [
+
+		{
+			"worksteps": [
+
+				{
+					"date": "2020-03-30",
+					"type": "MineralFertilization",
+					"amount": [ 60.0, "kg N" ],
+					"partition": [ "ref", "fert-params", "AN" ]
+				},
+				{
+					"date": "2020-09-17",
+					"type": "Sowing",
+					"crop": [ "ref", "crops", "WR" ]
+				},
+				{
+					"date": "2021-03-06",
+					"type": "MineralFertilization",
+					"amount": [ 40.0, "kg N" ],
+					"partition": [ "ref", "fert-params", "AN" ]
+				},
+				{
+					"date": "2021-08-23",
+					"type": "Harvest",
+					"crop": [ "ref", "crops", "WR" ]
+				}
+			]
+		}
+	],
+	"__general crop parameters for the monica model": "",
+	"CropParameters": [ "include-from-file", "general/crop.json" ]
+}
+

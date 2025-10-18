@@ -1,0 +1,108 @@
+{
+    "__this is the path which is prepended to 'include-from-file' paths, if they are relative paths": "",
+    "SiteParameters": {
+        "Latitude": 52.3938,
+        "Slope": 0,
+        "HeightNN": [
+            0,
+            "m"
+        ],
+        "pwpFcSatFunction": "Toth",
+        "NDeposition": [
+            30,
+            "kg N ha-1 y-1"
+        ],
+        "SoilProfileParameters": [
+            {
+                "Thickness": [
+                    0.3,
+                    "m"
+                ],
+                "SoilOrganicCarbon": [
+                    0.9574,
+                    "%"
+                ],
+                "Sand": 0.757923,
+                "Clay": 0.053517999999999996,
+                "SoilBulkDensity": [
+                    1363.0857,
+                    "kg m-3"
+                ]
+            },
+            {
+                "Thickness": [
+                    0.3,
+                    "m"
+                ],
+                "SoilOrganicCarbon": [
+                    0.3043,
+                    "%"
+                ],
+                "Sand": 0.75292,
+                "Clay": 0.062266,
+                "SoilBulkDensity": [
+                    1459.9446,
+                    "kg m-3"
+                ]
+            },
+            {
+                "Thickness": [
+                    0.3,
+                    "m"
+                ],
+                "SoilOrganicCarbon": [
+                    0.1969,
+                    "%"
+                ],
+                "Sand": 0.725605,
+                "Clay": 0.093922,
+                "SoilBulkDensity": [
+                    1473.4678,
+                    "kg m-3"
+                ]
+            },
+            {
+                "Thickness": [
+                    1.1,
+                    "m"
+                ],
+                "SoilOrganicCarbon": [
+                    0.1969,
+                    "%"
+                ],
+                "Sand": 0.725605,
+                "Clay": 0.093922,
+                "SoilBulkDensity": [
+                    1473.4678,
+                    "kg m-3"
+                ]
+            }
+        ]
+    },
+    "__all kinds of more general monica parameters": "",
+    "SoilTemperatureParameters": [
+        "include-from-file",
+        "general/soil-temperature.json"
+    ],
+    "EnvironmentParameters": {
+        "=": [
+            "include-from-file",
+            "general/environment.json"
+        ],
+        "LeachingDepth": 2.0,
+        "WindSpeedHeight": 2.5,
+        "rcp": 8.5
+    },
+    "SoilOrganicParameters": [
+        "include-from-file",
+        "general/soil-organic.json"
+    ],
+    "SoilTransportParameters": [
+        "include-from-file",
+        "general/soil-transport.json"
+    ],
+    "SoilMoistureParameters": [
+        "include-from-file",
+        "general/soil-moisture.json"
+    ]
+}

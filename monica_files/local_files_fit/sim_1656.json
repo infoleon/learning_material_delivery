@@ -1,0 +1,117 @@
+{
+    "__define paths to crop.json, site.json and climate.csv, no path means read from directory where sim.json (THIS file) has been found; files names are abitrary": "",
+    "crop.json": "crop_template.json",
+    "site.json": "site_1656.json",
+    "climate.csv": "./_template_weather.csv",
+    "__options for reading the climate csv file, how many header lines to read, which separator to use and optional conversion of headers to internally known names": "",
+    "climate.csv-options": {
+        "start-date": "2020-01-30",
+        "end-date": "2021-08-24",
+        "no-of-climate-file-header-lines": 2,
+        "csv-separator": ",",
+        "header-to-acd-names": {
+            "Date": "iso-date",
+            "tmin": "tmin",
+            "tavg": "tavg",
+            "tmax": "tmax",
+            "precip": "precip",
+            "relhumid": [
+                "relhumid",
+                "*",
+                1.0
+            ],
+            "globrad": [
+                "globrad",
+                "*",
+                1.0
+            ],
+            "wind": "wind"
+        }
+    },
+    "__set to 'true' to enable debug outputs and also write 'inputs.json' file into output directory": "",
+    "debug?": false,
+    "__the include file base path to be used if no other value is in crop/site.json specified": "",
+    "include-file-base-path": "../monica-parameters/",
+    "__configuration options for the monica outputs": "",
+    "output": {
+        "write-file?": true,
+        "__path to the directory file output is written to, when enabled (either via debug?: true or write-file?: true)": "",
+        "path-to-output": "./",
+        "file-name": "./results/out_1656.csv",
+        "__how to write and what to include in monica CSV output": "",
+        "csv-options": {
+            "include-header-row": true,
+            "include-units-row": false,
+            "include-aggregation-rows": false,
+            "csv-separator": ","
+        },
+        "__what data to include in the monica output according to the events defined by the keys": "",
+        "events": [
+            "daily",
+            [
+                "Date",
+                "Crop",
+                "Stage",
+                "Yield",
+                "LAI",
+                "Tra",
+                "TraDef",
+                "Act_Ev",
+                "Pot_ET",
+                "Act_ET",
+                "ET0",
+                [
+                    "rootDensity",
+                    [
+                        1,
+                        20
+                    ]
+                ]
+            ]
+        ]
+    },
+    "__turn on/off some model switches": "",
+    "UseSecondaryYields": true,
+    "NitrogenResponseOn": true,
+    "WaterDeficitResponseOn": true,
+    "EmergenceMoistureControlOn": true,
+    "EmergenceFloodingControlOn": true,
+    "__if monica internal automatic irrigation is to be used, configure donations here": "",
+    "UseAutomaticIrrigation": false,
+    "AutoIrrigationParams": {
+        "irrigationParameters": {
+            "nitrateConcentration": [
+                0,
+                "mg dm-3"
+            ],
+            "sulfateConcentration": [
+                0,
+                "mg dm-3"
+            ]
+        },
+        "amount": [
+            17,
+            "mm"
+        ],
+        "threshold": 0.35
+    },
+    "__if monica internal automatic fertilizing via NMin method is to be used, configure here": "",
+    "UseNMinMineralFertilisingMethod": false,
+    "NMinUserParams": {
+        "min": 40,
+        "max": 120,
+        "delayInDays": 10
+    },
+    "NMinFertiliserPartition": [
+        "include-from-file",
+        "mineral-fertilisers/AN.json"
+    ],
+    "_NMinFertiliserPartition": {
+        "id": "my AN",
+        "name": "my very own ammonium nitrate variant",
+        "Carbamid": 0,
+        "NH4": 0.5,
+        "NO3": 0.5
+    },
+    "JulianDayAutomaticFertilising": 89
+}
