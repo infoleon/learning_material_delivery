@@ -16,16 +16,22 @@ import numpy as np
 
 from scipy.ndimage import gaussian_filter
 
+### Configuration area
+
+# Smoothing fators, temporal and spatial
+sigma_t = 0.0
+sigma_x = 1.0
+sigma_y = sigma_x
+
+### end of Configuration
+
+
 
 # Which dataset?
 bsi     = False
 ndwi    = True
 
 
-# Smoothing fators, temporal and spatial
-sigma_t = 1.0
-sigma_x = 1.0
-sigma_y = sigma_x
 
 
 

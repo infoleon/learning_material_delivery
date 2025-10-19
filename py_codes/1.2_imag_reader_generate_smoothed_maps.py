@@ -21,10 +21,24 @@ from scipy.interpolate import interp1d
 from scipy.sparse import diags, csc_matrix
 from scipy.linalg import cho_factor, cho_solve
 
+### Configuration area
+
+lambda_whittaker = 100
+
+### end of Configuration
+
 
 whittaker_ = True
 
-lambda_whittaker = 100
+
+path = r"../data/all_imags_raw" + os.sep
+output_path_bsi  = r"../data/interpolated_images/bsi" + os.sep
+output_path_ndwi = r"../data/interpolated_images/ndwi" + os.sep
+
+
+
+remove_sce_labels = [1, 2, 3, 8, 9, 10]
+
 
 
 """
@@ -46,15 +60,6 @@ Band 13: ndvi       ind 12
 Band 14: ratio83    ind 13
 Band 15: ratio211   ind 14
 """
-
-
-
-path = r"../data/all_imags_raw" + os.sep
-output_path_bsi  = r"../data/interpolated_images\bsi" + os.sep
-output_path_ndwi = r"../data/interpolated_images\ndwi" + os.sep
-
-
-remove_sce_labels = [1, 2, 3, 8, 9, 10]
 
 
 

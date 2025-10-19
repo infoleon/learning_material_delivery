@@ -21,7 +21,7 @@ from rasterio.transform import rowcol
 
 
 
-
+### Configuration area
 
 # INPUTS
 raster_path = "../data/interpolated_images/_gauss_filt/bsi/bsi_2020-09-20.tif"
@@ -32,6 +32,7 @@ all_dat_p = "../data/true_data/soil_Boo_lean_all.csv"
 out_file = "../data/true_data/selection_GIS_32633_ws.csv"
 
 
+### end of Configuration
 
 # Load tables
 all_dat   = pd.read_csv(all_dat_p)

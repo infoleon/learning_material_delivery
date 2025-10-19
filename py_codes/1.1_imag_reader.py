@@ -30,6 +30,7 @@ from scipy.linalg      import cho_factor, cho_solve
 
 
 
+### Configuration area
 
 whittaker_ = True
 
@@ -39,8 +40,10 @@ lambda_whittaker = 100  # Adjust this parameter for more or less smoothing
 px_x = 60
 px_y = 45
 
-ndwi    = False    # 10_000
-bsi     = True    # 10_000
+ndwi    = True
+bsi     = False
+
+### end of Configuration
 
 
 """

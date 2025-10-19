@@ -45,6 +45,31 @@ ML to fit using Marquardt Levenberg
 
 """
 
+### Configuration area ###
+
+
+### Definition and assignment of the dates for the NDVI
+sowing_date  = "2021-02-22"   #!!! MOD DATE !!!!
+end_date     = "2021-05-17"
+
+# Wights for "Yield", "correlation". Values multiplied by the ABS difference
+weights = (1/1000, 10)
+# Initial parameters
+params_ini = [-3.0, 6.4, 154.2, 450.4, 202.0, 311.0, 301.0]
+
+# Upper and lower bounds
+bounds = [(  -5.0 ,   1.0 ),    # x0: base temperature for crop (applied to all layers)
+          (   2.0 ,  11.0 ),    # x1: base temp for cultivar
+          (  30.0 , 200.0 ),    # x2: stage temp sum 1  | 148
+          ( 200.0 , 800.0 ),    # x3: stage temp sum 2  | 284
+          ( 100.0 , 300.0 ),    # x4: stage temp sum 3  | 200
+          ( 100.0 , 450.0 ),    # x5: stage temp sum 4  | 400
+          ( 200.0 , 600.0 )]    # x6: stage temp sum 5  | 350
+
+### end of Configuration ###
+
+
+
 
 ML = True
 
@@ -87,11 +112,7 @@ working_directory = os.path.join( data_path_input , r"monica_files\local_files_f
 
 
 
-# Cordinates file, the same file as the ID
 
-### Definition and assignment of the dates for the NDVI
-sowing_date  = "2021-02-22"   #!!! MOD DATE !!!!
-end_date     = "2021-05-17"
 
 # Filtering the dates by the image values
 threshold = -9999
@@ -114,19 +135,7 @@ results_folder =  os.path.join( working_directory , r"results"  )
 path_param = os.path.join( data_path_input , "data", "fit_params" , "fit_params.json")
 
 
-# Wights for "Yield", "correlation" and "peak day diff". Values multiplied by the ABS difference
-weights = (1/1000, 10 , 1/100)
-# Initial parameters
-params_ini = [-3.0, 6.4, 154.2, 450.4, 202.0, 311.0, 301.0]
 
-# Upper and lower bounds
-bounds = [(  -5.0 ,   1.0 ),    # x0: base temperature for crop (applied to all layers)
-          (   2.0 ,  11.0 ),    # x1: base temp for cultivar
-          (  30.0 , 200.0 ),    # x2: stage temp sum 1  | 148
-          ( 200.0 , 800.0 ),    # x3: stage temp sum 2  | 284
-          ( 100.0 , 300.0 ),    # x4: stage temp sum 3  | 200
-          ( 100.0 , 450.0 ),    # x5: stage temp sum 4  | 400
-          ( 200.0 , 600.0 )]    # x6: stage temp sum 5  | 350
 
 
 
@@ -350,7 +359,7 @@ class monica_fitting:
             peak_errors = [abs((self.peak_datetime - sim_peak).days)
                            for sim_peak in max_lai_dates_sim]
             peak_rmse = np.sqrt(np.mean(np.array(peak_errors) ** 2))
-            peak_term = peak_rmse * self.weights[2]
+            peak_term = peak_rmse * 0.0 #self.weights[2]
         else:
             peak_rmse = 0.
             peak_term = 0.
@@ -414,7 +423,7 @@ class monica_fitting:
         peak_errors = [abs((self.peak_datetime - sim_peak).days)
                        for sim_peak in max_lai_dates_sim]
         peak_rmse = np.sqrt(np.mean(np.array(peak_errors) ** 2))
-        peak_resid = peak_rmse * self.weights[2]
+        peak_resid = peak_rmse * 0.0 #self.weights[2]
         
         
         #mean_corr = np.mean(correlations)
